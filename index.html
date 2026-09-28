@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kranthi Gandham — AI-First Delivery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3F5F7;
+    --ink: #14202E;
+    --muted: #55606B;
+    --navy: #16273D;
+    --navy-ink: #E9EEF3;
+    --amber: #B9812A;
+    --teal: #3E7C6B;
+    --line: rgba(20,32,46,0.13);
+    --line-strong: rgba(20,32,46,0.24);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #101820;
+      --ink: #E9EEF3;
+      --muted: #9AA7B4;
+      --navy: #0B131C;
+      --navy-ink: #E9EEF3;
+      --line: rgba(233,238,243,0.14);
+      --line-strong: rgba(233,238,243,0.26);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #101820;
+    --ink: #E9EEF3;
+    --muted: #9AA7B4;
+    --navy: #0B131C;
+    --navy-ink: #E9EEF3;
+    --line: rgba(233,238,243,0.14);
+    --line-strong: rgba(233,238,243,0.26);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: inherit; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+  .masthead {
+    background: var(--navy);
+    color: var(--navy-ink);
+    padding: 4.5rem 1.5rem 3.5rem;
+  }
+  .masthead-inner, .section-inner, .footer-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(2.1rem, 5.5vw, 3rem);
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.01em;
+  }
+  .role {
+    font-size: 1.05rem;
+    color: rgba(233,238,243,0.72);
+    margin: 0 0 1.75rem;
+  }
+  .thesis {
+    font-size: 1.1rem;
+    max-width: 34rem;
+    color: rgba(233,238,243,0.92);
+    margin: 0 0 2rem;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    font-size: 0.92rem;
+  }
+  .contact-row a {
+    text-decoration: none;
+    border-bottom: 1px solid rgba(233,238,243,0.35);
+    padding-bottom: 2px;
+    transition: border-color 0.15s ease;
+  }
+  .contact-row a:hover { border-color: rgba(233,238,243,0.9); }
+
+  section.project {
+    padding: 3.75rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  section.project:last-of-type { border-bottom: none; }
+
+  .project-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .project-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.7rem, 4vw, 2.15rem);
+    margin: 0;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .status .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot.amber { background: var(--amber); }
+  .dot.teal { background: var(--teal); }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 1.02rem;
+    margin: 0 0 1.6rem;
+  }
+
+  .lede {
+    font-size: 1.08rem;
+    max-width: 42rem;
+    margin: 0 0 1.75rem;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem 2.5rem;
+    padding: 1.25rem 0;
+    margin: 0 0 1.75rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    display: block;
+    margin-top: 0.15rem;
+  }
+
+  .body-text {
+    max-width: 42rem;
+    font-size: 1.02rem;
+  }
+  .body-text p { margin: 0 0 1.1rem; }
+  .body-text p:last-child { margin-bottom: 0; }
+
+  .stack-line {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin: 1.5rem 0 0;
+  }
+
+  footer {
+    padding: 3rem 1.5rem 4rem;
+  }
+  .footer-inner {
+    border-top: 1px solid var(--line);
+    padding-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  .footer-inner a { border-bottom: 1px solid var(--line-strong); text-decoration: none; }
+
+  @media (max-width: 480px) {
+    .masthead { padding: 3.5rem 1.25rem 2.75rem; }
+    section.project { padding: 3rem 1.25rem; }
+    .stats { gap: 1.5rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <h1 class="name">Kranthi Gandham</h1>
+    <p class="role">Program Manager · AI-First Delivery</p>
+    <p class="thesis">I treat AI as a delivery tool, not a talking point. When a process leans on manual effort, I build the system that removes the ceiling, then hand it off as automation, not another meeting. These are two of those systems.</p>
+    <div class="contact-row">
+      <a href="mailto:kgandham3@gmail.com">kgandham3@gmail.com</a>
+      <a href="https://linkedin.com/in/kgandham3">linkedin.com/in/kgandham3</a>
+    </div>
+  </div>
+</header>
+
+<section class="project" id="argus">
+  <div class="section-inner">
+    <div class="project-head">
+      <h2 class="project-title">ARGUS</h2>
+      <span class="status"><span class="dot amber"></span>Operational</span>
+    </div>
+    <p class="subtitle">AI-powered regression platform</p>
+
+    <div class="body-text">
+      <p class="lede">Across the 11 production websites I own delivery for, catching a broken page used to mean a person clicking through it, twice a day, every day. That was roughly five hours of team time daily, and even then, only the major sections got checked.</p>
+    </div>
+
+    <div class="stats">
+      <div><span class="stat-num">11</span><span class="stat-label">websites covered</span></div>
+      <div><span class="stat-num">4×</span><span class="stat-label">full passes daily</span></div>
+      <div><span class="stat-num">5+ hrs</span><span class="stat-label">team time freed, per day</span></div>
+    </div>
+
+    <div class="body-text">
+      <p>ARGUS replaced that manual sweep entirely. It now runs full content validation across every page on all 11 sites, with an initial layer of functional checks layered in, four times a day rather than two, timed to both India and US working hours so nothing sits unchecked overnight.</p>
+      <p>I architected and built ARGUS myself, the same instinct behind the Pre-UT quality gate I designed earlier in this role: find where manual effort is standing in for something that should be systematic, then remove the ceiling instead of working harder inside it. ARGUS stands for Autonomous Regression, Governance and Unified Surveillance, and it is designed as a local-first platform, so the same foundation can grow into baseline management, visual comparison, and release-aware validation.</p>
+      <p>The design goal is simple to say: ARGUS understands what a release is supposed to change, watches what actually changes, and flags it when the two disagree. That includes catching unexpected blast radius, like a story that touches the account page but also shifts the login page. Release validation is the piece I'm building next, so the check happens as part of the cutover itself instead of as a manual step after it.</p>
+    </div>
+    <p class="stack-line">Python · Playwright · Microsoft Copilot</p>
+  </div>
+</section>
+
+<section class="project" id="sherpa">
+  <div class="section-inner">
+    <div class="project-head">
+      <h2 class="project-title">Sherpa</h2>
+      <span class="status"><span class="dot teal"></span>Live, still evolving</span>
+    </div>
+    <p class="subtitle">A platform-agnostic job-application agent</p>
+
+    <div class="body-text">
+      <p class="lede">A real job search asks for more than one person can keep up with: parsing postings, tailoring materials, and navigating a different application system every time. Sherpa runs the whole loop locally, no cloud AI costs, no data leaving the machine.</p>
+    </div>
+
+    <div class="stats">
+      <div><span class="stat-num">$0</span><span class="stat-label">in API costs</span></div>
+      <div><span class="stat-num">1</span><span class="stat-label">generic engine, not one per platform</span></div>
+    </div>
+
+    <div class="body-text">
+      <p>A local LLM scores fit against my profile, then Sherpa walks the real application flow on whatever platform the posting routes to, Workday, Greenhouse, or something else entirely, using one generic scan-and-fill engine instead of custom code per platform.</p>
+      <p>What I didn't automate mattered as much as what I did. Every application runs through guardrails: a fit threshold, a salary floor, duplicate prevention, and a review queue for anything the system isn't confident about, plus a kill switch that stops the whole pipeline instantly.</p>
+      <p>Most of the real engineering was building visibility into failures that don't announce themselves, a button that visually exists but can't be located doesn't throw an error, it just quietly moves on. I fix those while it keeps applying. Discovery runs on LinkedIn today. Next up: other job boards, and Gmail integration so every application is tracked end to end.</p>
+    </div>
+    <p class="stack-line">Python · Playwright · local LLM (Ollama) · FastAPI · Electron</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>Kranthi Gandham</span>
+    <span><a href="mailto:kgandham3@gmail.com">Get in touch</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
